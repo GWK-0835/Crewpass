@@ -8,7 +8,8 @@ COPY . /app
 WORKDIR /app
 
 # Install Node.js dependencies defined in '/app/packages.json'
-RUN npm install; exit 0
+RUN npm install
+RUN npm cache clean
 
 FROM bitnami/node:9-prod
 ENV NODE_ENV="production"
